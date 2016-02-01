@@ -1,9 +1,9 @@
 import React from 'react';
-import RaisedButton from 'material-ui/lib/app-bar';
-import ThemeManager from 'material-ui/lib/styles/theme-manager';
-import LightRawTheme from 'material-ui/lib/styles/raw-themes/light-raw-theme';
-import Colors from 'material-ui/lib/styles/colors';
-import Header from './header';
+import RaisedButton from '../../../node_modules/material-ui/lib/app-bar';
+import ThemeManager from '../../../node_modules/material-ui/lib/styles/theme-manager';
+import LightRawTheme from '../../../node_modules/material-ui/lib/styles/raw-themes/light-raw-theme';
+import Colors from '../../../node_modules/material-ui/lib/styles/colors';
+import Header from './../components/header';
 
 const Main = React.createClass({
 
@@ -47,6 +47,8 @@ const Main = React.createClass({
   render() {
     return (
         <Header />
+
+        <Footer />
     );
   },
 });
