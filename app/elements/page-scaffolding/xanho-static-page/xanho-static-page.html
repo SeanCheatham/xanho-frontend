@@ -1,0 +1,32 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-styles/typography.html">
+
+<dom-module id="xanho-static-page">
+  <template>
+
+    <style include="shared-styles">
+    </style>
+
+    <xanho-header>
+
+    </xanho-header>
+
+    <paper-material>
+      <h1>{{!title}}</h1>
+      <content></content>
+    </paper-material>
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'xanho-static-page',
+        properties: {
+          title: Boolean
+        }
+      });
+    })();
+  </script>
+</dom-module>

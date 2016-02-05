@@ -1,0 +1,340 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="xanho-home">
+  <template>
+    <style include="shared-styles">
+
+      .container {
+        @apply(--layout-vertical);
+        margin: 0 auto;
+        align-items: center;
+      }
+
+      .item {
+        @apply(--layout-vertical);
+        @apply(--layout-center);
+        @apply(--layout-center-justified);
+        width: 100%;
+      }
+
+      #first-item {
+        text-align: center;
+        height: 100vh;
+      }
+
+      #first-item h1 {
+        color: var(--dark-primary-color);
+        font-size: 4.4em;
+        font-family: Oxygen, sans-serif;
+        font-weight: 400;
+        margin: 4px;
+      }
+
+      #first-item h2 {
+        color: var(--dark-accent-color);
+        font-size: 1.4em;
+        font-family: Oxygen, sans-serif;
+        font-weight: 400;
+        margin: 4px;
+      }
+
+      #second-item {
+        width: 100%;
+      }
+
+      #more-info-item {
+        @apply(--layout-horizontal);
+        @apply(--layout-center);
+        @apply(--layout-around-justified);
+        text-align: center;
+        width: 100%;
+        color: white;
+      }
+
+      #more-info-item a {
+        color: white;
+      }
+
+      #more-info-item iron-icon {
+        --iron-icon-width: 100%;
+        --iron-icon-height: 100%;
+      }
+
+      #footer-item {
+        width: 100%;
+      }
+
+    </style>
+
+    <iron-media-query query="(min-width: 800px)" query-matches="{{wide}}"></iron-media-query>
+
+    <xanho-cover id="page1" autoFitOnAttach
+                 image="http://pingendo.github.io/pingendo-bootstrap/assets/blurry/800x600/12.jpg"></xanho-cover>
+    <div class="container">
+      <section class="item" id="first-item">
+        <div id="blurb">
+          <h1>Xanho</h1>
+          <h2>The Education Revolution</h2>
+        </div>
+
+        <xanho-login id="login">
+        </xanho-login>
+      </section>
+      <section class="item" id="second-item">
+
+        <xanho-home-info-row title="Smarter Course Selection" subtitle="Algorithmically Determined and Relevant Today"
+                             imageurl="https://ununsplash.imgix.net/photo-1423753623104-718aaace6772?w=1024&amp;q=50&amp;fm=jpg&amp;s=1ffa61419561b5c796bca3158e7c704c">
+          <p>Using state-of-the-art Machine Learning algorithms, the course selection
+            evolves over time. &nbsp;New and exciting courses are introduced constantly,
+            while old, out-dated ones are archived. &nbsp;There are no degrees or majors;
+            you simply pick and choose the topics you find interesting.
+            <br>
+            <br>Additionally, you can specify a list of life dreams indicating your interests,
+            career choices, and hobbies. &nbsp;Using these dreams, Xanho can recommend
+            course trajectories which help you achieve these dreams.</p>
+        </xanho-home-info-row>
+
+        <xanho-home-info-row title="More Learning, Less Memorizing" subtitle="And No Homework"
+                             imageurl="https://unsplash.imgix.net/photo-1423683249427-8ca22bd873e0?w=1024&q=50&fm=jpg&s=5e57c661d0f772ce269188a6f5325708">
+          <p>Xanho is research focused, meaning there are no tests, quizzes, or exams.
+            &nbsp;As you learn about a topic, you create projects which demonstrate
+            understanding of a concept. &nbsp;There is no curriculum. &nbsp;There are
+            no deadlines.
+            <br>
+            <br>Standardized tests detract from learning. &nbsp;Educators have no choice
+            but to "teach to the test", and students are forced to memorize and regurgitate
+            trivia. &nbsp;The current education system emphasizes evaluation and leaves
+            no room for learning.
+            <br>
+            <br>Any fact can be looked up and confirmed within seconds using today's technology.
+            &nbsp;If we, as a species, want to compete with machines, we need to play
+            to our strengths. &nbsp;Computers will always be better at memorizing,
+            but humans will always be better at creative thinking.</p>
+        </xanho-home-info-row>
+
+        <xanho-home-info-row title="Point Driven" subtitle="No More Grades, Ranks, Years, or Levels"
+                             imageurl="https://unsplash.imgix.net/photo-1414490929659-9a12b7e31907?w=1024&q=50&fm=jpg&s=f838066e7aa9eab9d1ccc28fd5ec9574">
+          <p>Research Projects are scored by qualified educators in the given course.
+            &nbsp;Educators are certified to evaluate certain ranges of scores. &nbsp;For
+            example, a college professor would be certified on a different range than
+            an elementary school teacher.
+            <br>
+            <br>As you complete Research Projects, multiple educators score them. &nbsp;Your
+            score in a given Course is the cumulative sum of your average Research
+            Project scores.
+            <br>
+            <br>
+            <br>Research Projects are evaluated by their accuracy, originality, and complexity.
+            &nbsp;Negative scores can be given for inaccurate information.</p>
+        </xanho-home-info-row>
+
+        <xanho-home-info-row title="Inexpensive" subtitle="$1/Day"
+                             imageurl="https://unsplash.imgix.net/photo-1418479631014-8cbf89db3431?w=1024&q=50&fm=jpg&s=478a9a2196033db7c0bf3c8ba3707f4d">
+          <p>The current education system, especially higher education, is extremely
+            bloated and unnecessarily expensive. &nbsp;Xanho cuts out the unnecessary
+            overheard, and focuses its expenses on the platform and the educators.
+            &nbsp;As a result, students pay less, and teachers earn more.
+            <br>
+            <br>Education should be accessible to anyone, anywhere. &nbsp;Wealth or income
+            should not dictate a person's academic potential. &nbsp;Education should
+            be fun and affordable rather than a stressful financial decision.
+            <br>
+            <br>Furthermore, through a peer review process, you can use your own knowledge
+            and expertise to evaluate others' projects for credit in the system. &nbsp;In
+            theory, you could use Xanho completely free as a student.</p>
+        </xanho-home-info-row>
+
+        <xanho-home-info-row title="Endless Education" subtitle="Learning Shouldn't Stop at Graduation"
+                             imageurl="https://unsplash.imgix.net/photo-1422513391413-ddd4f2ce3340?w=1024&q=50&fm=jpg&s=282e5978de17d6cd2280888d16f06f04">
+          <p>Life is often divided into two halves: education followed by a career.
+            &nbsp;The two should not be mutually exclusive. &nbsp;Education should
+            start early and never stop. &nbsp;It's never too late to learn, and your
+            future should not be determined by a degree you received decades ago. &nbsp;Stay
+            relevant in a changing world. &nbsp;Pick up a new skill. &nbsp;Train for
+            a new job. &nbsp;Never stop learning.</p>
+        </xanho-home-info-row>
+
+        <xanho-home-info-row title="Intelligent Report Cards" subtitle="Know Exactly Where You Stand"
+                             imageurl="https://unsplash.imgix.net/uploads/1412112828986a673b954/1d8ef901?w=1024&q=50&fm=jpg&s=9c44bb02d0811d30403b18a15a70e6a2">
+          <p>Using our interconnected course model combined with the research point
+            system, guage yourself in a world of possible courses to determine your
+            strengths and weaknesses. &nbsp;Perhaps you need to brush-up on your math
+            skills, or maybe it's time you practiced those writing skills. &nbsp;Using
+            a visual map of your educational progress, you can see exactly where you
+            stand.
+            <br>
+            <br>Optionally, you can release your report card and all of your research
+            projects to potential employers. &nbsp;The job application process is drastically
+            simplified by allowing employers to specify the exact qualifications for
+            a position, and students are matched with their dream jobs automatically.</p>
+        </xanho-home-info-row>
+
+        <xanho-home-info-row title="Tailored Content" subtitle="Individuals Learn Differently"
+                             imageurl="https://ununsplash.imgix.net/photo-1423753623104-718aaace6772?w=1024&amp;q=50&amp;fm=jpg&amp;s=1ffa61419561b5c796bca3158e7c704c">
+          <p>A primary issue with the current education system is that educators need
+            to teach to the group rather than the individual. &nbsp;Some students learn
+            best through reading, some with images, some with videos, some with physical
+            construction, etc. &nbsp;Some educators are better at teaching through
+            documents, some through slideshows, some through one-on-one meetings, and
+            some just prefer grading projects.
+            <br>
+            <br>Educators can share their course materials to a much wider audience. &nbsp;Students
+            can filter on the content from which they will learn best as well as rate
+            the content on its effectiveness.
+            <br>
+            <br>In the end, students have access to the best course content from a wide
+            range of educators covering multiple learning styles.</p>
+        </xanho-home-info-row>
+
+      </section>
+
+      <section class="item" id="more-info-item">
+        <div class="layout vertical">
+          <a href="" style="color: #3989b5;">
+            <iron-icon icon="social:person"></iron-icon>
+            <h2>Students</h2>
+          </a>
+          <h3>Learn More For Less</h3>
+        </div>
+        <div class="layout vertical">
+          <a href="" style="color: #5cb85c;">
+            <iron-icon icon="social:person"></iron-icon>
+            <h2>Educators</h2>
+          </a>
+          <h3>Teach To Your Strengths</h3>
+        </div>
+        <div class="layout vertical">
+          <a href="" style="color: #248057;">
+            <iron-icon icon="social:person"></iron-icon>
+            <h2>Recruiters</h2>
+          </a>
+          <h3>Find Qualified Candidates</h3>
+        </div>
+      </section>
+
+      <section class="item" id="footer-item">
+        <xanho-footer></xanho-footer>
+      </section>
+
+    </div>
+
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'xanho-home'
+      });
+    })();
+  </script>
+</dom-module>
+
+<dom-module id="xanho-home-info-row">
+  <template>
+    <style include="shared-styles">
+
+      :host {
+        width: 100%;
+      }
+
+      :host:nth-child(even) {
+        background-color: #5cb85c;
+        color: var(--primary-text-color);
+      }
+
+      :host:nth-child(odd) {
+        background-color: #248057;
+        color: var(--primary-text-color);
+      }
+
+      .info-row {
+        width: 100%;
+        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.7) inset;
+      }
+
+      .columns {
+        @apply(--layout-horizontal);
+        @apply(--layout-wrap);
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      :host:nth-child(even) .columns {
+        @apply(--layout-horizontal-reverse);
+      }
+
+      .info-column {
+        @apply(--layout-flex);
+        @apply(--layout-self-center);
+        width: 50%;
+        padding: 2em;
+        height: 100%;
+      }
+
+      .info-column[narrow-layout] {
+        width: 100%;
+      }
+
+      .info-column h1 {
+        font-size: 2.8em;
+        font-weight: 500;
+        color: var(--primary-background-color);
+      }
+
+      .info-column h3 {
+        font-size: 1.4em;
+        font-weight: 400;
+      }
+
+      ::content p {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 0.9em;
+        line-height: 1.4em;
+      }
+
+      .info-column img {
+        border-radius: 4px;
+        display: block;
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
+      }
+
+    </style>
+
+    <iron-media-query query="(min-width: 800px)" query-matches="{{wide}}"></iron-media-query>
+
+    <div class="info-row">
+      <div class="columns">
+        <template is="dom-if" if="{{wide}}">
+          <div class="info-column" narrow-layout$="{{!wide}}">
+            <img src="{{imageurl}}"/>
+          </div>
+        </template>
+        <div class="info-column" narrow-layout$="{{!wide}}">
+          <h1>{{title}}</h1>
+          <h3>{{subtitle}}</h3>
+          <content></content>
+        </div>
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'xanho-home-info-row',
+        properties: {
+          title: String,
+          subtitle: String,
+          imageurl: String
+        }
+      });
+    })();
+  </script>
+</dom-module>

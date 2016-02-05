@@ -1,0 +1,107 @@
+<script src="../bower_components/page/page.js"></script>
+<script>
+  window.addEventListener('WebComponentsReady', function() {
+    // We use Page.js for routing. This is a Micro
+    // client-side router inspired by the Express router
+    // More info: https://visionmedia.github.io/page.js/
+    // Removes end / from app.baseUrl which page.base requires for production
+    if (window.location.port === '') {  // if production
+      page.base(app.baseUrl.replace(/\/$/, ''));
+    }
+    // Middleware
+    function scrollToTop(ctx, next) {
+      app.scrollPageToTop();
+      next();
+    }
+    function closeDrawer(ctx, next) {
+      app.closeDrawer();
+      next();
+    }
+    // Routes
+    page('*', function(ctx, next) {
+      next();
+    });
+
+    // Static Pages
+    page('/', function() {
+      app.route = 'home';
+      app.titleAppend = '';
+    });
+
+    page(app.baseUrl, function() {
+      app.route = 'home';
+      app.titleAppend = '';
+    });
+
+    page('/about', function() {
+      app.route = 'about';
+      app.titleAppend = 'About';
+    });
+
+
+    // User/Auth Pages
+    page('/login', function(){
+      app.route = 'login';
+      app.titleAppend = 'Login';
+    });
+
+    page('/register', function(){
+      app.route = 'register';
+      app.titleAppend = 'Register';
+    });
+
+    page('/logout', function(){
+      app.route = 'logout';
+      app.titleAppend = 'Logout';
+    });
+
+    page('/user/me/profile', function(){
+      app.route = 'myProfile';
+      app.titleAppend = 'Profile';
+    });
+
+    page('/user/:id/profile', function(data){
+      app.route = 'profile';
+      app.data = data;
+      app.titleAppend = 'Profile';
+    });
+
+
+    // Application Pages
+    page('/user/me/dreams', function(){
+      app.route = 'dreams';
+      app.titleAppend = 'Dreams';
+    });
+
+    page('/user/me/courses', function(){
+      app.route = 'courses';
+      app.titleAppend = 'Courses';
+    });
+
+    page('/courses', function(){
+      app.route = 'searchCourses';
+      app.titleAppend = 'Search Courses';
+    });
+
+    page('/courses/:id', function(data){
+      app.route = 'singleCourse';
+      app.data = data;
+      app.titleAppend = 'Course';
+    });
+
+
+
+    // 404
+    page('*', function() {
+      app.$.toast.text = 'Can\'t find: ' + window.location.href  + '. Redirected you to Home Page';
+      app.$.toast.show();
+      page.redirect(app.baseUrl);
+    });
+
+    // add #! before urls
+    page({
+      hashbang: true
+    });
+
+  });
+</script>

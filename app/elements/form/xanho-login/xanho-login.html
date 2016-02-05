@@ -1,0 +1,61 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="xanho-login">
+  <template>
+    <style include="shared-styles">
+      :host {
+        background-color: rgba(0, 0, 0, 0.2);
+        width: 400px;
+        text-align: center;
+        margin: 0 auto;
+        --paper-checkbox-size: 12px;
+      }
+
+      button {
+        color: white;
+        margin: 10px 20px;
+        border-radius: 0;
+        font: inherit;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: .8em;
+        line-height: 1.42857143;
+      }
+
+      #login-button {
+        background-color: #3d9970;
+        border: 1px solid #368763;
+      }
+
+      #register-button {
+        background-color: #5cb85c;
+        border: 1px solid #4cae4c;
+      }
+
+
+
+    </style>
+      <form is="iron-form" id="form" method="post" action="/form/handler">
+        <paper-input type="email" name="email" label="Email"></paper-input>
+        <paper-input name="password" label="Password" type="password"></paper-input>
+        <br/>
+        <button is="iron-input" id="register-button"><iron-icon icon="social:person"></iron-icon>Register</button>
+        <button is="iron-input" id="login-button"><iron-icon icon="check"></iron-icon>Login</button>
+      </form>
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'xanho-login'
+      });
+    })();
+  </script>
+</dom-module>

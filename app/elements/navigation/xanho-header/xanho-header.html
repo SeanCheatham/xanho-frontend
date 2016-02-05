@@ -1,0 +1,41 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-styles/typography.html">
+
+<dom-module id="xanho-header">
+  <template>
+    <style>
+      paper-toolbar {
+        background-color: var(--accent-color);
+      }
+
+      .transparent {
+        background-color: transparent;
+      }
+    </style>
+
+    <template is="dom-if" if="{{transparent}}">
+      <paper-toolbar class="transparent">
+
+      </paper-toolbar>
+    </template>
+
+    <template is="dom-if" if="{{!transparent}}">
+      <paper-toolbar>
+
+      </paper-toolbar>
+    </template>
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'xanho-header',
+        properties: {
+          'transparent': Boolean
+        }
+      });
+    })();
+  </script>
+</dom-module>

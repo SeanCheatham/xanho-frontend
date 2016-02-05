@@ -1,0 +1,9 @@
+{
+  "firebase": "xanho-frontend",
+  "public": "dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

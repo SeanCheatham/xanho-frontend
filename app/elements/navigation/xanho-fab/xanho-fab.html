@@ -1,0 +1,107 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="xanho-fab">
+  <template>
+    <style include="shared-styles">
+      :host {
+        position: fixed;
+        z-index: 10;
+        bottom: 0;
+        right: 0;
+      }
+
+      #fab {
+        bottom: 1.2em;
+        right: 1.2em;
+        z-index: 11;
+      }
+
+      #menu {
+        @apply(--layout-vertical);
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding: 0.2em 0.2em 1em;
+        background-color: rgba(0,0,0,0.3)
+      }
+
+      #menu>section {
+        margin: 0.18em auto;
+      }
+
+      #search-section {
+        @apply(--layout-horizontal);
+      }
+
+      #search-section button {
+        background-color: transparent;
+        color: white;
+        border: 0;
+      }
+
+      #search-section button:hover {
+        cursor: pointer;
+        color: var(--accent-color);
+      }
+
+      .buttons-section {
+        @apply(--layout-horizontal);
+        @apply(--layout-wrap);
+      }
+
+      .buttons-section paper-fab {
+        --paper-fab-background: var(--primary-background-color);
+        margin: 4px;
+      }
+
+      #close {
+        margin-top: -20px;
+        margin-left: -20px;
+      }
+    </style>
+
+    <paper-fab id="fab" icon="menu" title="Menu" on-click="toggle" hidden$="{{!hide}}"></paper-fab>
+
+    <div id="menu" hidden$="{{hide}}">
+      <div id="close"><paper-fab mini icon="close" title="close" on-click="toggle"></paper-fab></div>
+      <section id="search-section">
+        <paper-input name="search" label="Search..."></paper-input>
+        <button is="iron-input" id="search-button">
+          <iron-icon icon="search"></iron-icon>
+        </button>
+      </section>
+      <section class="buttons-section">
+        <paper-fab id="home-fab" icon="home" title="Home"></paper-fab>
+        <paper-fab id="login-fab" icon="lock" title="Login"></paper-fab>
+      </section>
+      <section class="buttons-section">
+        <paper-fab mini id="contact-fab" icon="communication:contact-mail" title="Home"></paper-fab>
+        <paper-fab mini id=help-fab" icon="communication:live-help" title="Help"></paper-fab>
+      </section>
+
+    </div>
+
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'xanho-fab',
+
+        properties: {
+          hide: {
+            type: Boolean,
+            value: true,
+            notify: true
+          }
+        },
+
+        toggle: function () {
+          this.hide = !this.hide
+        }
+      });
+    })();
+  </script>
+</dom-module>
