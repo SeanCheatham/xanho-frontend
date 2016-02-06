@@ -31,10 +31,12 @@ a.symbol:before {
 }
 
 body {
-  background: #1e1e1e;
+  background: #181818;
   font-family: 'Oxygen', 'Source Sans Pro', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #ffffff;
   min-height: 100%;
+  margin: 0;
+  font-size: 16px;
 }
 
 a {

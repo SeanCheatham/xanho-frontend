@@ -5,6 +5,38 @@
 <dom-module id="shared-styles">
   <template>
     <style>
+
+      body {
+        @apply(--layout-vertical);
+        color: var(--text-primary-color);
+        background-color: var(--primary-background-color);
+      }
+
+      a {
+        color: var(--text-primary-color);
+      }
+
+      a:hover {
+        color: var(--light-text-color);
+      }
+
+      h1 {
+        color: var(--secondary-text-color);
+        font-size: 3em;
+      }
+
+      h2 {
+        font-size: 2em;
+      }
+
+      p {
+        text-indent: 1em;
+      }
+
+      li {
+        line-height: 1.6em;
+      }
+
       .page-title {
         @apply(--paper-font-display2);
       }

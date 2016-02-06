@@ -33,6 +33,11 @@
       app.titleAppend = '';
     });
 
+    page('/home', function() {
+      app.route = 'home';
+      app.titleAppend = '';
+    });
+
     page('/about', function() {
       app.route = 'about';
       app.titleAppend = 'About';
@@ -99,9 +104,7 @@
     });
 
     // add #! before urls
-    page({
-      hashbang: true
-    });
+    page({});
 
   });
 </script>

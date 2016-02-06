@@ -19,7 +19,7 @@
 
       #first-item {
         text-align: center;
-        height: 100vh;
+        height: 96vh;
       }
 
       #first-item h1 {
@@ -31,15 +31,32 @@
       }
 
       #first-item h2 {
-        color: var(--dark-accent-color);
+        color: var(--accent-color);
         font-size: 1.4em;
         font-family: Oxygen, sans-serif;
         font-weight: 400;
         margin: 4px;
       }
 
+      #first-item #down-icon {
+        margin-top: 100px;
+        color: var(--accent-color);
+      }
+
+      #first-item #down-icon iron-icon {
+
+        --iron-icon-height: 64px;
+        --iron-icon-width: 64px;
+      }
+
       #second-item {
         width: 100%;
+      }
+
+      #login-paper {
+        width: 400px;
+
+        background-color: rgba(0, 0, 0, 0.2);
       }
 
       #more-info-item {
@@ -48,7 +65,8 @@
         @apply(--layout-around-justified);
         text-align: center;
         width: 100%;
-        color: white;
+        background-color: transparent;
+        color: var(--primary-text-color);
       }
 
       #more-info-item a {
@@ -69,7 +87,8 @@
     <iron-media-query query="(min-width: 800px)" query-matches="{{wide}}"></iron-media-query>
 
     <xanho-cover id="page1" autoFitOnAttach
-                 image="http://pingendo.github.io/pingendo-bootstrap/assets/blurry/800x600/12.jpg"></xanho-cover>
+                 image="images/bg1.jpg"></xanho-cover>
+
     <div class="container">
       <section class="item" id="first-item">
         <div id="blurb">
@@ -77,8 +96,13 @@
           <h2>The Education Revolution</h2>
         </div>
 
+        <paper-material elevation="5" id="login-paper">
         <xanho-login id="login">
         </xanho-login>
+          </paper-material>
+        <div id="down-icon">
+          <iron-icon icon="arrow-downward"></iron-icon>
+        </div>
       </section>
       <section class="item" id="second-item">
 
@@ -128,7 +152,7 @@
             &nbsp;Negative scores can be given for inaccurate information.</p>
         </xanho-home-info-row>
 
-        <xanho-home-info-row title="Inexpensive" subtitle="$1/Day"
+        <xanho-home-info-row title="Inexpensive" subtitle="Education Shouldn't Be Held For Ransom"
                              imageurl="https://unsplash.imgix.net/photo-1418479631014-8cbf89db3431?w=1024&q=50&fm=jpg&s=478a9a2196033db7c0bf3c8ba3707f4d">
           <p>The current education system, especially higher education, is extremely
             bloated and unnecessarily expensive. &nbsp;Xanho cuts out the unnecessary
@@ -211,11 +235,6 @@
           <h3>Find Qualified Candidates</h3>
         </div>
       </section>
-
-      <section class="item" id="footer-item">
-        <xanho-footer></xanho-footer>
-      </section>
-
     </div>
 
   </template>
@@ -241,12 +260,12 @@
 
       :host:nth-child(even) {
         background-color: #5cb85c;
-        color: var(--primary-text-color);
+        color: var(--text-primary-color);
       }
 
       :host:nth-child(odd) {
         background-color: #248057;
-        color: var(--primary-text-color);
+        color: var(--text-primary-color);
       }
 
       .info-row {
@@ -290,7 +309,6 @@
 
       ::content p {
         font-family: 'Source Sans Pro', sans-serif;
-        font-size: 0.9em;
         line-height: 1.4em;
       }
 

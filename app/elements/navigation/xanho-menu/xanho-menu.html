@@ -1,0 +1,118 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="xanho-menu">
+  <template>
+    <style>
+
+      :host {
+        padding: 0;
+        margin: 0;
+      }
+
+      #container {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        color: var(--text-primary-color);
+        background-color: #333;
+      }
+
+      a {
+        color: var(--text-primary-color);
+      }
+
+      a:hover {
+        color: var(--light-text-color);
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      #search-section {
+        @apply(--layout-flex);
+        @apply(--layout-self-end);
+        @apply(--layout-horizontal);
+      }
+
+      #search-section button {
+        background-color: transparent;
+        color: white;
+        border: 0;
+      }
+
+      #search-section button:hover {
+        cursor: pointer;
+        color: var(--accent-color);
+      }
+
+      #user-section {
+        background-color: #888;
+      }
+
+      #avatar {
+        --iron-icon-height: 128px;
+        --iron-icon-width: 128px;
+      }
+
+    </style>
+      <div id="container">
+      <section id="search-section">
+        <paper-input name="search" label="Search..."></paper-input>
+        <button is="iron-input" id="search-button">
+          <iron-icon icon="search"></iron-icon>
+        </button>
+      </section>
+
+      <section id="user-section">
+        <iron-icon id="avatar" icon="social:person"></iron-icon>
+        <div id="greeting">Hello, <span class="user">Stranger</span>.</div>
+      </section>
+
+      <section id="navigation-section">
+        <paper-menu attr-for-selected="data-route" selected="[[route]]">
+          <paper-item data-route="home">
+            <a href="{{baseUrl}}home">
+              <iron-icon icon="home"></iron-icon>
+              <span>Home</span>
+            </a>
+          </paper-item>
+          <paper-item data-route="about">
+            <a href="{{baseUrl}}about">
+              <iron-icon icon="communication:live-help"></iron-icon>
+              <span>About</span>
+            </a>
+          </paper-item>
+          <paper-item data-route="login">
+            <a href="{{baseUrl}}login">
+              <iron-icon icon="lock"></iron-icon>
+              <span>Login</span>
+            </a>
+          </paper-item>
+          <paper-item data-route="register">
+            <a href="{{baseUrl}}register">
+              <iron-icon icon="social:person"></iron-icon>
+              <span>Register</span>
+            </a>
+          </paper-item>
+          <paper-item data-route="contact">
+            <a href="{{baseUrl}}contact">
+              <iron-icon icon="communication:contact-mail"></iron-icon>
+              <span>Contact</span>
+            </a>
+          </paper-item>
+        </paper-menu>
+      </section>
+      </div>
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'xanho-menu'
+      });
+    })();
+  </script>
+</dom-module>

@@ -4,8 +4,7 @@
   <template>
     <style include="shared-styles">
       :host {
-        background-color: rgba(0, 0, 0, 0.2);
-        width: 400px;
+        max-width: 400px;
         text-align: center;
         margin: 0 auto;
         --paper-checkbox-size: 12px;
@@ -38,14 +37,19 @@
       }
 
 
-
     </style>
       <form is="iron-form" id="form" method="post" action="/form/handler">
         <paper-input type="email" name="email" label="Email"></paper-input>
         <paper-input name="password" label="Password" type="password"></paper-input>
         <br/>
-        <button is="iron-input" id="register-button"><iron-icon icon="social:person"></iron-icon>Register</button>
-        <button is="iron-input" id="login-button"><iron-icon icon="check"></iron-icon>Login</button>
+        <button is="iron-input" id="register-button">
+          <iron-icon icon="social:person"></iron-icon>
+          Register
+        </button>
+        <button is="iron-input" id="login-button">
+          <iron-icon icon="check"></iron-icon>
+          Login
+        </button>
       </form>
   </template>
 

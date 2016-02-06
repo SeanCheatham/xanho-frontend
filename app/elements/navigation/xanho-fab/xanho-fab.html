@@ -75,8 +75,8 @@
         <paper-fab id="login-fab" icon="lock" title="Login"></paper-fab>
       </section>
       <section class="buttons-section">
-        <paper-fab mini id="contact-fab" icon="communication:contact-mail" title="Home"></paper-fab>
-        <paper-fab mini id=help-fab" icon="communication:live-help" title="Help"></paper-fab>
+        <paper-fab mini id="contact-fab" icon="communication:contact-mail" title="Contact"></paper-fab>
+        <paper-fab mini id=help-fab" icon="communication:live-help" title="Help" on-click="navigate('about')"></paper-fab>
       </section>
 
     </div>
@@ -100,6 +100,10 @@
 
         toggle: function () {
           this.hide = !this.hide
+        },
+
+        navigate: function(route) {
+          app.route = route;
         }
       });
     })();

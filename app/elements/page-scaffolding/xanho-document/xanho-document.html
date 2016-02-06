@@ -1,0 +1,93 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="xanho-document">
+  <template>
+    <style include="shared-styles">
+
+      :host {
+        min-height: 100%;
+        background-color: var(--default-primary-color);
+
+      }
+
+      #page-content {
+        padding: 1.8em;
+        margin: 0 auto;
+        max-width: 960px;
+        color: var(--secondary-text-color);
+      }
+
+      #title {
+        font-weight: 700;
+        font-size: 4.8em;
+      }
+
+      #subtitle {
+        font-weight: 400;
+        font-size: 1.8em;
+      }
+
+      #date {
+        font-size: 0.8em;
+        font-style: italic;
+      }
+
+      #author {
+        font-size: 0.8em;
+        font-weight: 600;
+      }
+
+      paper-material {
+        padding: 20px;
+        margin: 12px auto;
+        background-color: var(--text-primary-color);
+      }
+    </style>
+
+    <iron-media-query query="(min-width: 800px)" query-matches="{{wide}}"></iron-media-query>
+
+    <xanho-cover id="page1" autoFitOnAttach
+                 image="images/bg.jpg"></xanho-cover>
+
+    <div id="page-content">
+      <template is="dom-if" if="{{title}}">
+        <h1 id="title">{{title}}</h1>
+      </template>
+
+      <template is="dom-if" if="{{subtitle}}">
+        <h2 id="subtitle">{{subtitle}}</h2>
+      </template>
+
+      <template is="dom-if" if="{{author}}">
+        <div id="author">{{author}}</div>
+      </template>
+
+      <template is="dom-if" if="{{date}}">
+        <div id="date">{{date}}</div>
+      </template>
+      <paper-material>
+        <content></content>
+      </paper-material>
+    </div>
+
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'xanho-document',
+
+        properties: {
+
+          title: String,
+          subtitle: String,
+          date: Date,
+          author: String
+
+        }
+      });
+    })();
+  </script>
+</dom-module>

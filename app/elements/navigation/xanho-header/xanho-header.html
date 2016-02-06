@@ -1,29 +1,49 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../../bower_components/paper-styles/typography.html">
 
 <dom-module id="xanho-header">
   <template>
     <style>
-      paper-toolbar {
-        background-color: var(--accent-color);
+
+      :host {
+        top: 0;
+        width: 100%;
       }
 
-      .transparent {
+      paper-toolbar {
+        @apply(--layout-horizontal);
+        --paper-toolbar-background: var(--dark-primary-color);
+      }
+
+      paper-toolbar[transparent] {
+        --paper-toolbar-background: transparent;
+      }
+
+      #search-section {
+        @apply(--layout-flex);
+        @apply(--layout-self-end);
+        @apply(--layout-horizontal);
+      }
+
+      #search-section button {
         background-color: transparent;
+        color: white;
+        border: 0;
+      }
+
+      #search-section button:hover {
+        cursor: pointer;
+        color: var(--accent-color);
       }
     </style>
-
-    <template is="dom-if" if="{{transparent}}">
-      <paper-toolbar class="transparent">
-
-      </paper-toolbar>
-    </template>
-
-    <template is="dom-if" if="{{!transparent}}">
-      <paper-toolbar>
-
-      </paper-toolbar>
-    </template>
+    <paper-toolbar transparent$="[[transparent]]">
+      <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+      <section id="search-section">
+        <paper-input name="search" label="Search..."></paper-input>
+        <button is="iron-input" id="search-button">
+          <iron-icon icon="search"></iron-icon>
+        </button>
+      </section>
+    </paper-toolbar>
   </template>
 
   <script>
@@ -32,8 +52,11 @@
 
       Polymer({
         is: 'xanho-header',
+        reflectToAttribute: true,
+        notify: true,
         properties: {
-          'transparent': Boolean
+          transparent: Boolean,
+          value: false
         }
       });
     })();
