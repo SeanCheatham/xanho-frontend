@@ -56,42 +56,51 @@
     });
 
     page('/logout', function(){
-      app.route = 'logout';
-      app.titleAppend = 'Logout';
+        app.$.xanhoAuth.logout();
+      page.redirect('/');
     });
 
     page('/user/me/profile', function(){
-      app.route = 'myProfile';
-      app.titleAppend = 'Profile';
+      if(app.user) {
+        app.route = 'myProfile';
+        app.titleAppend = 'Profile';
+      } else {
+        page.redirect('/login');
+      }
     });
 
     page('/user/:id/profile', function(data){
-      app.route = 'profile';
-      app.data = data;
-      app.titleAppend = 'Profile';
+      if(app.user) {
+        app.route = 'profile';
+        app.data = data;
+        app.titleAppend = 'Profile';
+      } else {
+        page.redirect('/login');
+      }
+
     });
 
 
     // Application Pages
-    page('/user/me/dreams', function(){
+    page('/dreams', function(){
       app.route = 'dreams';
       app.titleAppend = 'Dreams';
     });
 
-    page('/user/me/courses', function(){
-      app.route = 'courses';
-      app.titleAppend = 'Courses';
+    page('/user/me/topics', function(){
+      app.route = 'topics';
+      app.titleAppend = 'Topics';
     });
 
-    page('/courses', function(){
-      app.route = 'searchCourses';
-      app.titleAppend = 'Search Courses';
+    page('/topics', function(){
+      app.route = 'searchTopics';
+      app.titleAppend = 'Search Topics';
     });
 
-    page('/courses/:id', function(data){
-      app.route = 'singleCourse';
+    page('/topics/:id', function(data){
+      app.route = 'singleTopic';
       app.data = data;
-      app.titleAppend = 'Course';
+      app.titleAppend = 'Topic';
     });
 
 

@@ -13,12 +13,12 @@
         height: 100%;
         padding: 0;
         margin: 0;
-        color: var(--text-primary-color);
+        color: whitesmoke;
         background-color: #333;
       }
 
       a {
-        color: var(--text-primary-color);
+        color: whitesmoke;
       }
 
       a:hover {
@@ -48,11 +48,21 @@
 
       #user-section {
         background-color: #888;
+        text-align: center;
+        line-height: 3em;
       }
 
-      #avatar {
+      #avatar, #userAvatar {
+        margin: 0 auto;
+        display: block;
         --iron-icon-height: 128px;
         --iron-icon-width: 128px;
+      }
+
+      #userAvatar {
+        border-radius: 50%;
+        width: 128px;
+        height: 128px;
       }
 
     </style>
@@ -65,40 +75,64 @@
       </section>
 
       <section id="user-section">
-        <iron-icon id="avatar" icon="social:person"></iron-icon>
-        <div id="greeting">Hello, <span class="user">Stranger</span>.</div>
+        <iron-icon id="avatar" icon="social:person" hidden$="{{user}}"></iron-icon>
+        <image width="128" height="128" id="userAvatar" src="{{user.google.profileImageURL}}" hidden$="{{!user}}"></image>
+        <div id="greeting">Hello, <a class="user" hidden$="{{!user}}" href="{{baseUrl}}user/me/profile">{{user.google.displayName}}</a><span class="user" hidden$="{{user}}">Stranger</span>.</div>
       </section>
 
       <section id="navigation-section">
         <paper-menu attr-for-selected="data-route" selected="[[route]]">
           <paper-item data-route="home">
             <a href="{{baseUrl}}home">
-              <iron-icon icon="home"></iron-icon>
+              <paper-icon-button icon="home"></paper-icon-button>
               <span>Home</span>
             </a>
           </paper-item>
           <paper-item data-route="about">
             <a href="{{baseUrl}}about">
-              <iron-icon icon="communication:live-help"></iron-icon>
+              <paper-icon-button icon="communication:live-help"></paper-icon-button>
               <span>About</span>
             </a>
           </paper-item>
-          <paper-item data-route="login">
+          <paper-item data-route="login" hidden$="{{user}}">
             <a href="{{baseUrl}}login">
-              <iron-icon icon="lock"></iron-icon>
+              <paper-icon-button icon="lock"></paper-icon-button>
               <span>Login</span>
             </a>
           </paper-item>
-          <paper-item data-route="register">
+          <paper-item data-route="register" hidden$="{{user}}">
             <a href="{{baseUrl}}register">
-              <iron-icon icon="social:person"></iron-icon>
+              <paper-icon-button icon="social:person"></paper-icon-button>
               <span>Register</span>
             </a>
           </paper-item>
           <paper-item data-route="contact">
             <a href="{{baseUrl}}contact">
-              <iron-icon icon="communication:contact-mail"></iron-icon>
+              <paper-icon-button icon="communication:contact-mail"></paper-icon-button>
               <span>Contact</span>
+            </a>
+          </paper-item>
+
+          <hr hidden$="{{!user}}" />
+
+          <paper-item data-route="dashboard" hidden$="{{!user}}">
+            <a href="{{baseUrl}}dashboard">
+              <paper-icon-button icon="editor:insert-chart"></paper-icon-button>
+              <span>Dashboard</span>
+            </a>
+          </paper-item>
+
+          <paper-item data-route="dreams" hidden$="{{!user}}">
+            <a href="{{baseUrl}}dreams">
+              <paper-icon-button icon="cloud"></paper-icon-button>
+              <span>Dreams</span>
+            </a>
+          </paper-item>
+
+          <paper-item data-route="logout" hidden$="{{!user}}">
+            <a href="{{baseUrl}}logout">
+              <paper-icon-button icon="lock-open"></paper-icon-button>
+              <span>Logout</span>
             </a>
           </paper-item>
         </paper-menu>
@@ -111,7 +145,15 @@
       'use strict';
 
       Polymer({
-        is: 'xanho-menu'
+        is: 'xanho-menu',
+        properties: {
+          user: {
+            type: Object,
+            value: null,
+            notify: true,
+            reflectToAttribute: true
+          }
+        }
       });
     })();
   </script>

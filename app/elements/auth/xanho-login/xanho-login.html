@@ -1,0 +1,46 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="xanho-login">
+  <template>
+    <style include="shared-styles">
+      :host {
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      #container {
+        padding: 20px;
+      }
+
+      #loginButton:hover {
+        cursor: pointer;
+      }
+
+    </style>
+    <div id="container" hidden$="{{user}}">
+      <iron-image id="loginButton" src="images/btn_google_signin_light_normal_web.png" on-click="login"></iron-image>
+    </div>
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'xanho-login',
+
+        properties: {
+          user: {
+            type: Object,
+            value: null,
+            notify: true
+          }
+        },
+
+        login: function() {
+          app.$.xanhoAuth.login();
+        }
+      });
+    })();
+  </script>
+</dom-module>

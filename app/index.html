@@ -34,9 +34,8 @@
 
   <style>
 
-    #main-panel {
+    #mainContent {
       box-shadow: -5px 0 8px 0 rgba(0, 0, 0, 0.7);
-      z-index: 5;
     }
 
     #main-pager {
@@ -45,26 +44,42 @@
       padding: 0;
     }
 
+    #menu-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+    }
+
     #main-pager > section {
       width: 100%;
       min-height: 100%;
       margin: 0;
     }
   </style>
-  <paper-drawer-panel>
+  <xanho-auth id="xanhoAuth" user="{{currentUser}}"></xanho-auth>
 
-    <xanho-menu drawer></xanho-menu>
+  <paper-drawer-panel id="drawerPanel">
 
-    <paper-scroll-header-panel id="main-panel" main fixed condenses no-reveal no-dissolve>
+    <paper-scroll-header-panel drawer fixed>
+      <xanho-menu id="mainMenu" user="[[currentUser]]"></xanho-menu>
+    </paper-scroll-header-panel>
+
+    <paper-scroll-header-panel id="mainContent" main fixed condenses no-reveal no-dissolve>
+      <paper-icon-button id="menu-button" icon="menu" paper-drawer-toggle></paper-icon-button>
       <iron-pages id="main-pager" attr-for-selected="data-route" selected="{{route}}">
         <section data-route="home">
-          <xanho-home>
+          <xanho-home user="[[currentUser]]">
           </xanho-home>
         </section>
         <section data-route="about">
           <xanho-about>
 
           </xanho-about>
+        </section>
+        <section data-route="dreams">
+          <xanho-dreams>
+
+          </xanho-dreams>
         </section>
       </iron-pages>
       <xanho-footer></xanho-footer>

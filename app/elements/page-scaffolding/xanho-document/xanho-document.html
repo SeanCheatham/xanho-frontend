@@ -40,7 +40,6 @@
       paper-material {
         padding: 20px;
         margin: 12px auto;
-        background-color: var(--text-primary-color);
       }
     </style>
 
@@ -65,7 +64,7 @@
       <template is="dom-if" if="{{date}}">
         <div id="date">{{date}}</div>
       </template>
-      <paper-material>
+      <paper-material elevation="3">
         <content></content>
       </paper-material>
     </div>

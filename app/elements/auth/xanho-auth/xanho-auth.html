@@ -1,0 +1,74 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="xanho-auth">
+  <template>
+    <iron-meta key="user" value="{{user}}"></iron-meta>
+    <firebase-auth id="firebaseAuth" user="{{user}}" status-known="{{statusKnown}}"
+                   location="https://xanho-frontend.firebaseIO.com" provider="{{provider}}"
+                   on-login="loginSuccessHandler"
+                   on-error="errorHandler">
+
+    </firebase-auth>
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'xanho-auth',
+
+        properties: {
+          provider: {
+            type: String,
+            reflectToAttribute: true,
+            value: 'google'
+          },
+
+          message: {
+            type: String,
+            value: '',
+            reflectToAttribute: true
+          },
+
+          user: {
+            type: Object,
+            value: null,
+            notify: true,
+            reflectToAttribute: true
+          },
+
+          statusKnown: {
+            type: Boolean,
+            notify: true,
+            value: false,
+            reflectToAttribute: true
+          }
+        },
+
+        login: function () {
+          var params;
+          try {
+            params = JSON.parse(this.params);
+          } catch (e) {
+            params = null;
+          }
+          this.$.firebaseAuth.login(params);
+        },
+
+        logout: function () {
+          this.$.firebaseAuth.logout();
+          app.user = null;
+        },
+
+        errorHandler: function (e) {
+          this.message = 'Error: ' + e.detail.message;
+        },
+
+        loginSuccessHandler: function (e) {
+          console.log(e);
+        }
+      });
+    })();
+  </script>
+</dom-module>
